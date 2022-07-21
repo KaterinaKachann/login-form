@@ -1,0 +1,34 @@
+.container {
+	margin: 0 auto;
+	max-width: 1440px;
+	min-height: 100vh;
+	width: 100%;
+	padding: 3.1rem 7rem;
+	background-color: #f2f2f2;
+	.form-conatiner {
+		margin: 0 auto;
+		position: relative;
+		border-left: 138px solid #5a61ed;
+		padding: 4rem 2rem 3rem 2rem;
+		background-color: #ffffff;
+		width: 666px;
+		.form-container__title {
+			.form-container__title-main {
+				font-family: "PT Sans";
+				font-size: 5rem;
+				font-weight: 400;
+				color: #ffffff;
+
+				position: absolute;
+				bottom: 0;
+				left: 0;
+
+				margin-left: -110px;
+				margin-bottom: -70px;
+
+				transform: rotate(270deg);
+				transform-origin: 0 0;
+			}
+		}
+	}
+}
