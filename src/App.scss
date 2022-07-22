@@ -1,17 +1,25 @@
 .container {
 	margin: 0 auto;
-	max-width: 1440px;
 	min-height: 100vh;
 	width: 100%;
-	padding: 3.1rem 7rem;
+	display: flex;
+	align-items: center;
+
 	background-color: #f2f2f2;
 	.form-conatiner {
+		max-width: 1440px;
+		height: 50%;
 		margin: 0 auto;
 		position: relative;
-		border-left: 138px solid #5a61ed;
-		padding: 4rem 2rem 3rem 2rem;
+		border-left: 10rem solid #5a61ed;
+		padding: 3rem 2rem 3rem 2rem;
 		background-color: #ffffff;
-		width: 666px;
+
+		background-image: url(./assets/user.svg);
+		background-repeat: no-repeat;
+		background-position-y: 7rem;
+		background-position-x: 20rem;
+		background-size: 30rem;
 		.form-container__title {
 			.form-container__title-main {
 				font-family: "PT Sans";
@@ -28,6 +36,150 @@
 
 				transform: rotate(270deg);
 				transform-origin: 0 0;
+			}
+		}
+		.form-container__content {
+			.form-container__content-title-subtitle {
+				margin-bottom: 4rem;
+				.title {
+					font-size: 1.5rem;
+					font-weight: 700;
+				}
+				.subtitle {
+					font-size: 1rem;
+					font-weight: 200;
+				}
+			}
+			.form-container__content-input {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.content-input {
+					.form-container__content-input-text {
+						position: relative;
+						margin-bottom: 3rem;
+						margin-right: 3rem;
+						input {
+							font-family: "Work Sans", sans-serif;
+							font-size: 1.5rem;
+							font-weight: 400;
+							color: #111111;
+
+							padding: 10px 10px 10px 0px;
+							display: block;
+							width: 100%;
+							border: none;
+							border-bottom: 1px solid #f2f2f2;
+							background: transparent;
+						}
+
+						.label-input-text {
+							color: #7c7c7c;
+							font-size: 1.5rem;
+							font-weight: 200;
+							position: absolute;
+							pointer-events: none;
+							top: 10px;
+							transition: 0.2s ease all;
+							-moz-transition: 0.2s ease all;
+							-webkit-transition: 0.2s ease all;
+						}
+						select {
+							font-family: "Work Sans", sans-serif;
+							font-size: 1.5rem;
+							font-weight: 400;
+							color: #111111;
+
+							padding: 10px 10px 10px 0px;
+
+							border: none;
+							border-bottom: 1px solid #f2f2f2;
+							background: transparent;
+						}
+						input:focus ~ .label-input-text,
+						input:valid ~ .label-input-text,
+						.select-nationality:focus ~ label,
+						.select-nationality:valid ~ label,
+						.select-birth:focus ~ label,
+						.select-birth:valid ~ label {
+							top: -30px;
+							font-size: 1.5rem;
+							color: #7c7c7c;
+						}
+						.bar {
+							position: relative;
+							display: block;
+							width: 100%;
+						}
+						.bar:before,
+						.bar:after {
+							content: "";
+							height: 2px;
+							width: 0;
+							position: absolute;
+							background: #5264ae;
+							transition: 0.2s ease all;
+							-moz-transition: 0.2s ease all;
+							-webkit-transition: 0.2s ease all;
+						}
+						.bar:before {
+							left: 50%;
+						}
+						.bar:after {
+							right: 50%;
+						}
+
+						input:focus ~ .bar:before,
+						input:focus ~ .bar:after {
+							width: 50%;
+						}
+
+						.highlight {
+							position: absolute;
+							height: 60%;
+							width: 100px;
+							top: 25%;
+							left: 0;
+							pointer-events: none;
+							opacity: 0.5;
+						}
+					}
+				}
+			}
+			.form-container__content-submit {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.form-container__content-login {
+					p {
+						font-size: 1rem;
+						font-weight: 100;
+						span{
+							font-weight: 400;
+							color: #5a61ed;
+							text-decoration: underline;
+							cursor: pointer;
+						}
+					}
+				}
+				.form-container__content-submit-btn {
+					button {
+						background-color: #5a61ed;
+						padding: 0.7rem 2rem;
+						font-size: 1rem;
+						color: #ffffff;
+						cursor: pointer;
+						transition: 0.2s ease all;
+						-moz-transition: 0.2s ease all;
+						-webkit-transition: 0.2s ease all;
+						&:hover {
+							background-color: #6e74e1;
+						}
+						&:active{
+							background-color: #5b62e1;
+						}
+					}
+				}
 			}
 		}
 	}
