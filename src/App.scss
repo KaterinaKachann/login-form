@@ -20,6 +20,14 @@
 		background-position-y: 7rem;
 		background-position-x: 20rem;
 		background-size: 30rem;
+		@media (min-width: 768px) and (max-width: 991px) {
+			width: 40rem;
+			border-left: 6.6rem solid #5a61ed;
+		}
+		@media (max-width: 768px) {
+			width: 20rem;
+			border-left: 4.6rem solid #5a61ed;
+		}
 		.form-container__title {
 			.form-container__title-main {
 				font-family: "PT Sans";
@@ -33,7 +41,7 @@
 
 				margin-left: -68px;
 				margin-bottom: -39px;
-				
+
 				transform: rotate(270deg);
 				transform-origin: 0 0;
 			}
@@ -57,9 +65,18 @@
 				display: flex;
 				flex-direction: row;
 				margin-bottom: 5.3rem;
+
+				@media (max-width: 768px) {
+					flex-wrap: wrap;
+
+				}
 				.col-one {
 					width: 16rem;
 					margin-right: 0.5rem;
+					@media (max-width: 768px) {
+						padding-right: 3rem;
+						
+					}
 				}
 				.col-two {
 					width: 15rem;
@@ -146,7 +163,13 @@
 				flex-direction: row;
 				justify-content: space-between;
 				align-items: center;
+				@media (max-width: 768px) {
+					flex-wrap: wrap;
+				}
 				.form-container__content-login {
+					@media (max-width: 768px) {
+						margin-bottom: 1rem;
+					}
 					p {
 						color: #7c7c7c;
 						font-size: 0.8rem;
