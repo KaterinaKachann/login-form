@@ -20,48 +20,50 @@ function App() {
 						</p>
 					</div>
 					<div className="form-container__content-input">
-						<div className="content-input">
+						<div className="content-input col-one">
 							<div className="form-container__content-input-text">
+								<label className="label-input-text">First Name</label>
 								<input type="text" required value="Alice" />
 								<span className="highlight"></span>
 								<span className="bar"></span>
-								<label className="label-input-text">First Name</label>
 							</div>
 							<SelectInputNationality />
 							<SelectInputDate />
 							<div className="form-container__content-input-text">
+								<label className="label-input-text">Password</label>
 								<input type="text" required />
 								<span className="highlight"></span>
 								<span className="bar"></span>
-								<label className="label-input-text">Password</label>
 							</div>
 						</div>
-						<div className="content-input">
+						<div className="content-input col-two">
 							<div className="form-container__content-input-text">
+								<label className="label-input-text">Last Name</label>
 								<input type="text" required value="Miller" />
 								<span className="highlight"></span>
 								<span className="bar"></span>
-								<label className="label-input-text">Last Name</label>
 							</div>
 							<div className="form-container__content-input-text">
+								<label className="label-input-text">Email</label>
 								<input type="text" required value="alice.miller@yahoo.com" />
 								<span className="highlight"></span>
 								<span className="bar"></span>
-								<label className="label-input-text">Email</label>
 							</div>
 							<RadioInputGender />
-							
+
 							<div className="form-container__content-input-text">
+								<label className="label-input-text">Confirm Password</label>
 								<input type="text" required />
 								<span className="highlight"></span>
 								<span className="bar"></span>
-								<label className="label-input-text">Confirm Password</label>
 							</div>
 						</div>
 					</div>
 					<div className="form-container__content-submit">
 						<div className="form-container__content-login">
-							<p>Have an account? <span>Login</span></p>
+							<p>
+								Have an account? <span>Login</span>
+							</p>
 						</div>
 						<div className="form-container__content-submit-btn">
 							<button>Complete Signup</button>

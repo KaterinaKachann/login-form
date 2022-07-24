@@ -1,4 +1,18 @@
-.select-birth {
-	display: inline;
-	width: 8rem;
+.form-label-block {
+	display: flex;
+	flex-direction: column;
+	.label-block {
+		display: block;
+	}
+	.select-wrap {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		.select-day{
+			width: 3.9rem;
+		}
+		.select-year{
+			width: 4.5rem;
+		}
+	}
 }

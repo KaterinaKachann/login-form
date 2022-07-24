@@ -8,11 +8,11 @@
 	background-color: #f2f2f2;
 	.form-conatiner {
 		max-width: 1440px;
-		height: 50%;
+		width: 41.5rem;
 		margin: 0 auto;
 		position: relative;
-		border-left: 10rem solid #5a61ed;
-		padding: 3rem 2rem 3rem 2rem;
+		border-left: 8.6rem solid #5a61ed;
+		padding: 2.6rem 1.4rem 1.9rem 1.2rem;
 		background-color: #ffffff;
 
 		background-image: url(./assets/user.svg);
@@ -23,7 +23,7 @@
 		.form-container__title {
 			.form-container__title-main {
 				font-family: "PT Sans";
-				font-size: 5rem;
+				font-size: 3.1rem;
 				font-weight: 400;
 				color: #ffffff;
 
@@ -31,80 +31,75 @@
 				bottom: 0;
 				left: 0;
 
-				margin-left: -110px;
-				margin-bottom: -70px;
-
+				margin-left: -68px;
+				margin-bottom: -39px;
+				
 				transform: rotate(270deg);
 				transform-origin: 0 0;
 			}
 		}
 		.form-container__content {
 			.form-container__content-title-subtitle {
-				margin-bottom: 4rem;
+				margin-bottom: 1rem;
 				.title {
-					font-size: 1.5rem;
+					font-size: 1.4rem;
 					font-weight: 700;
+					line-height: 26px;
+					letter-spacing: -0.6px;
 				}
 				.subtitle {
-					font-size: 1rem;
+					font-size: 0.912rem;
 					font-weight: 200;
+					line-height: 16px;
 				}
 			}
 			.form-container__content-input {
 				display: flex;
 				flex-direction: row;
-				justify-content: space-between;
+				margin-bottom: 5.3rem;
+				.col-one {
+					width: 16rem;
+					margin-right: 0.5rem;
+				}
+				.col-two {
+					width: 15rem;
+				}
 				.content-input {
 					.form-container__content-input-text {
-						position: relative;
-						margin-bottom: 3rem;
-						margin-right: 3rem;
+						margin-bottom: 0.9rem;
 						input {
 							font-family: "Work Sans", sans-serif;
-							font-size: 1.5rem;
+							font-size: 0.9rem;
 							font-weight: 400;
 							color: #111111;
 
-							padding: 10px 10px 10px 0px;
 							display: block;
 							width: 100%;
 							border: none;
 							border-bottom: 1px solid #f2f2f2;
 							background: transparent;
+
+							padding: 0.2rem 0rem 0.3rem 0rem;
 						}
 
 						.label-input-text {
 							color: #7c7c7c;
-							font-size: 1.5rem;
+							font-size: 0.8rem;
 							font-weight: 200;
-							position: absolute;
-							pointer-events: none;
-							top: 10px;
-							transition: 0.2s ease all;
-							-moz-transition: 0.2s ease all;
-							-webkit-transition: 0.2s ease all;
 						}
-						select {
+						select,
+						option {
 							font-family: "Work Sans", sans-serif;
-							font-size: 1.5rem;
+							font-size: 0.9rem;
 							font-weight: 400;
 							color: #111111;
-
-							padding: 10px 10px 10px 0px;
 
 							border: none;
 							border-bottom: 1px solid #f2f2f2;
 							background: transparent;
-						}
-						input:focus ~ .label-input-text,
-						input:valid ~ .label-input-text,
-						.select-nationality:focus ~ label,
-						.select-nationality:valid ~ label,
-						.select-birth:focus ~ label,
-						.select-birth:valid ~ label {
-							top: -30px;
-							font-size: 1.5rem;
-							color: #7c7c7c;
+							margin: 0;
+
+							padding: 0.2rem 0rem 0.2rem 0rem;
 						}
 						.bar {
 							position: relative;
@@ -150,11 +145,15 @@
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
+				align-items: center;
 				.form-container__content-login {
 					p {
-						font-size: 1rem;
-						font-weight: 100;
-						span{
+						color: #7c7c7c;
+						font-size: 0.8rem;
+						font-weight: 400;
+						margin-top: -0.6rem;
+						span {
+							font-size: 0.8rem;
 							font-weight: 400;
 							color: #5a61ed;
 							text-decoration: underline;
@@ -164,9 +163,11 @@
 				}
 				.form-container__content-submit-btn {
 					button {
+						font-family: "PT Sans";
 						background-color: #5a61ed;
-						padding: 0.7rem 2rem;
-						font-size: 1rem;
+						font-size: 0.9rem;
+						padding: 0.5rem 1.6rem;
+						line-height: 18px;
 						color: #ffffff;
 						cursor: pointer;
 						transition: 0.2s ease all;
@@ -175,7 +176,7 @@
 						&:hover {
 							background-color: #6e74e1;
 						}
-						&:active{
+						&:active {
 							background-color: #5b62e1;
 						}
 					}
