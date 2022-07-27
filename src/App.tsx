@@ -70,11 +70,9 @@ function App() {
 	password.current = watch("Password", "");
 
 	const handleSubmitForm = (data: any) => {
-		console.log(data.Password);
-		console.log(data.ConfirmPassword);
+		console.log(data);
 		reset();
 	};
-	console.log({ ...register("Password") });
 	return (
 		<main className="container">
 			<div className="form-conatiner">
@@ -93,7 +91,6 @@ function App() {
 							<div className="content-input">
 								<div className="form-container__content-input-text col-one">
 									<label className="label-input-text">First Name</label>
-
 									<input
 										type="text"
 										placeholder="Alice"
@@ -109,6 +106,7 @@ function App() {
 										<span className="bar"></span>
 									)}
 								</div>
+
 								<div className="form-container__content-input-text col-two">
 									<label className="label-input-text">Last Name</label>
 									<input
@@ -120,7 +118,6 @@ function App() {
 										}
 									/>
 									<span className="highlight"></span>
-									<span className="bar"></span>
 									{errors.LastName ? (
 										<span className="errorBar"></span>
 									) : (
@@ -203,6 +200,7 @@ function App() {
 										</select>
 									</div>
 								</div>
+
 								<div className="form-container__content-input-radio col-two">
 									<label>Gender</label>
 									<div className="radio-container">
@@ -211,7 +209,7 @@ function App() {
 												<input
 													type="radio"
 													value="Male"
-													{...register("Gender", { required: true })}
+													{...register("Gender")}
 												/>
 												<i className="helper"></i>Male
 											</label>
@@ -222,7 +220,7 @@ function App() {
 													type="radio"
 													defaultChecked={true}
 													value="Female"
-													{...register("Gender", { required: true })}
+													{...register("Gender")}
 												/>
 												<i className="helper"></i>Female
 											</label>
@@ -230,6 +228,7 @@ function App() {
 									</div>
 								</div>
 							</div>
+
 							<div className="content-input">
 								<div className="form-container__content-input-text col-one">
 									<label className="label-input-text">Password</label>
@@ -254,16 +253,17 @@ function App() {
 									/>
 									<span className="highlight"></span>
 									{errors.Password ? (
-										<span>
+										<>
 											<span className="errorBar"></span>
 											<span style={{ color: "red" }}>
 												{errors.Password.message}
 											</span>
-										</span>
+										</>
 									) : (
 										<span className="bar"></span>
 									)}
 								</div>
+
 								<div className="form-container__content-input-text col-two">
 									<label className="label-input-text">Confirm Password</label>
 									<input
@@ -283,10 +283,12 @@ function App() {
 									<span className="highlight"></span>
 
 									{errors.ConfirmPassword ? (
-										<span>
-										<span className="errorBar"></span>
-										<span style={{color:"red"}}>{errors.ConfirmPassword.message}</span>
-										</span>
+										<>
+											<span className="errorBar"></span>
+											<span style={{ color: "red" }}>
+												{errors.ConfirmPassword.message}
+											</span>
+										</>
 									) : (
 										<span className="bar"></span>
 									)}
