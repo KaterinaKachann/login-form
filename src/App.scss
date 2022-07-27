@@ -62,26 +62,24 @@
 				}
 			}
 			.form-container__content-input {
-				display: flex;
-				flex-direction: row;
 				margin-bottom: 5.3rem;
-
-				@media (max-width: 768px) {
-					flex-wrap: wrap;
-
-				}
-				.col-one {
-					width: 16rem;
-					margin-right: 0.5rem;
-					@media (max-width: 768px) {
-						padding-right: 3rem;
-						
-					}
-				}
-				.col-two {
-					width: 15rem;
-				}
 				.content-input {
+					display: flex;
+					flex-direction: row;
+
+					@media (max-width: 768px) {
+						flex-wrap: wrap;
+					}
+					.col-one {
+						width: 16rem;
+						margin-right: 0.5rem;
+						@media (max-width: 768px) {
+							padding-right: 3rem;
+						}
+					}
+					.col-two {
+						width: 15rem;
+					}
 					.form-container__content-input-text {
 						margin-bottom: 0.9rem;
 						input {
@@ -118,7 +116,11 @@
 
 							padding: 0.2rem 0rem 0.2rem 0rem;
 						}
-						.bar {
+						.select-nationality {
+							display: block;
+							width: 100%;
+						}
+						.bar, .errorBar {
 							position: relative;
 							display: block;
 							width: 100%;
@@ -134,15 +136,28 @@
 							-moz-transition: 0.2s ease all;
 							-webkit-transition: 0.2s ease all;
 						}
-						.bar:before {
+						.errorBar:before,
+						.errorBar:after {
+							content: "";
+							height: 2px;
+							width: 0;
+							position: absolute;
+							background: #db1f2f;
+							transition: 0.2s ease all;
+							-moz-transition: 0.2s ease all;
+							-webkit-transition: 0.2s ease all;
+						}
+						.bar:before, .errorBar:before {
 							left: 50%;
 						}
-						.bar:after {
+						.bar:after, .errorBar:after {
 							right: 50%;
 						}
 
 						input:focus ~ .bar:before,
-						input:focus ~ .bar:after {
+						input:focus ~ .bar:after,
+						input:focus ~ .errorBar:before,
+						input:focus ~ .errorBar:after  {
 							width: 50%;
 						}
 
@@ -154,6 +169,106 @@
 							left: 0;
 							pointer-events: none;
 							opacity: 0.5;
+						}
+					}
+					.form-container__content-input-radio {
+						margin-bottom: 0.95rem;
+						label {
+							color: #7c7c7c;
+							font-size: 0.8rem;
+							font-weight: 200;
+						}
+						.radio-container {
+							display: flex;
+							flex-direction: row;
+							.radio-col-one {
+								margin-right: 1.2rem;
+							}
+							.radio {
+								padding: 0.2rem 0rem 0.3rem 0rem;
+
+								.radio-label {
+									position: relative;
+									cursor: pointer;
+									padding-left: 1rem;
+									display: block;
+
+									font-family: "Work Sans", sans-serif;
+									font-size: 0.9rem;
+									font-weight: 400;
+									color: #111111;
+									input {
+										width: auto;
+										opacity: 0.00000001;
+										position: absolute;
+										left: 0;
+									}
+									.helper {
+										position: absolute;
+										left: -0.25rem;
+										cursor: pointer;
+										display: block;
+										font-size: 1rem;
+										-webkit-user-select: none;
+										-moz-user-select: none;
+										-ms-user-select: none;
+										user-select: none;
+										color: #5a61ed;
+									}
+									.helper::before,
+									.helper::after {
+										content: "";
+										position: absolute;
+										left: 0;
+										top: 0;
+										margin: 0.1rem;
+										width: 0.7rem;
+										height: 0.7rem;
+										-webkit-transition: -webkit-transform 0.28s ease;
+										transition: -webkit-transform 0.28s ease;
+										transition: transform 0.28s ease;
+										transition: transform 0.28s ease,
+											-webkit-transform 0.28s ease;
+										border-radius: 50%;
+										border: 0.01rem solid #5a61ed;
+									}
+
+									.helper::after {
+										-webkit-transform: scale(0);
+										transform: scale(0);
+										background-color: #5a61ed;
+										border-color: #5a61ed;
+									}
+									&:hover {
+										color: #5a61ed;
+									}
+									input:checked ~ .helper::after {
+										-webkit-transform: scale(0.5);
+										transform: scale(0.5);
+									}
+									input:checked ~ .helper::before {
+										color: #5a61ed;
+									}
+								}
+							}
+						}
+					}
+					.form-label-block {
+						display: flex;
+						flex-direction: column;
+						.label-block {
+							display: block;
+						}
+						.select-wrap {
+							display: flex;
+							flex-direction: row;
+							justify-content: space-between;
+							.select-day {
+								width: 3.9rem;
+							}
+							.select-year {
+								width: 4.5rem;
+							}
 						}
 					}
 				}
