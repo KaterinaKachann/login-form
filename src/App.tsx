@@ -217,11 +217,12 @@ function App() {
 								<div className="form-container__content-input-text col-one">
 									<label className="label-input-text">Password</label>
 									<input
-										type="password"
-										{...register("Password", { required: true })}
+										type="text"
+										{...register("Password", { required: true , minLength: 8, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/i})}
+										style={errors.Password ? {color:'red'} : {color: '#111111'}}
 									/>
 									<span className="highlight"></span>
-									{errors.Password?.type === "required" ? (
+									{errors.Password ? (
 										<span className="errorBar"></span>
 									) : (
 										<span className="bar"></span>
@@ -230,12 +231,13 @@ function App() {
 								<div className="form-container__content-input-text col-two">
 									<label className="label-input-text">Confirm Password</label>
 									<input
-										type="password"
+										type="text"
 										{...register("ConfirmPassword", { required: true })}
+										style={errors.ConfirmPassword ? {color:'red'} : {color: '#111111'}}
 									/>
 									<span className="highlight"></span>
 
-									{errors.Password?.type === "required" ? (
+									{errors.ConfirmPassword ? (
 										<span className="errorBar"></span>
 									) : (
 										<span className="bar"></span>
