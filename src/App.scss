@@ -74,11 +74,16 @@
 						width: 16rem;
 						margin-right: 0.5rem;
 						@media (max-width: 768px) {
-							padding-right: 3rem;
+							margin-right: 0;
+							width: 100%;
 						}
 					}
 					.col-two {
 						width: 15rem;
+						@media (max-width: 768px) {
+						
+							width: 100%;
+						}
 					}
 					.form-container__content-input-text {
 						margin-bottom: 0.9rem;

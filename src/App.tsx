@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import "./App.scss";
+
 type FormData = {
 	FirstName: string;
 	LastName: string;
@@ -61,12 +62,19 @@ function App() {
 		register,
 		formState: { errors },
 		handleSubmit,
+		reset,
+		watch,
 	} = useForm<FormData>();
 
-	const handleSubmitForm = (data: any) => {
-		console.log(data);
-	};
+	const password = useRef({});
+	password.current = watch("Password", "");
 
+	const handleSubmitForm = (data: any) => {
+		console.log(data.Password);
+		console.log(data.ConfirmPassword);
+		reset();
+	};
+	console.log({ ...register("Password") });
 	return (
 		<main className="container">
 			<div className="form-conatiner">
@@ -90,7 +98,9 @@ function App() {
 										type="text"
 										placeholder="Alice"
 										{...register("FirstName", { required: true, minLength: 3 })}
-										style={errors.FirstName ? {color:'red'} : {color: '#111111'}}
+										style={
+											errors.FirstName ? { color: "red" } : { color: "#111111" }
+										}
 									/>
 									<span className="highlight"></span>
 									{errors.FirstName ? (
@@ -105,7 +115,9 @@ function App() {
 										type="text"
 										placeholder="Miller"
 										{...register("LastName", { required: true, minLength: 3 })}
-										style={errors.FirstName ? {color:'red'} : {color: '#111111'}}
+										style={
+											errors.FirstName ? { color: "red" } : { color: "#111111" }
+										}
 									/>
 									<span className="highlight"></span>
 									<span className="bar"></span>
@@ -136,8 +148,13 @@ function App() {
 									<input
 										type="text"
 										placeholder="alice.miller@yahoo.com"
-										{...register("Email", { required: true, pattern: /^\S+@\S+\.\S+\S$/i })}
-										style={errors.Email ? {color:'red'} : {color: '#111111'}}
+										{...register("Email", {
+											required: true,
+											pattern: /^\S+@\S+\.\S+\S$/i,
+										})}
+										style={
+											errors.Email ? { color: "red" } : { color: "#111111" }
+										}
 									/>
 									<span className="highlight"></span>
 									{errors.Email ? (
@@ -218,12 +235,31 @@ function App() {
 									<label className="label-input-text">Password</label>
 									<input
 										type="text"
-										{...register("Password", { required: true , minLength: 8, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/i})}
-										style={errors.Password ? {color:'red'} : {color: '#111111'}}
+										{...register("Password", {
+											required: true,
+											minLength: {
+												value: 8,
+												message: "Password must have at least 8 characters",
+											},
+											pattern: {
+												value:
+													/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i,
+												message:
+													"Password must have one lowercase letter, one uppercase letter, one number",
+											},
+										})}
+										style={
+											errors.Password ? { color: "red" } : { color: "#111111" }
+										}
 									/>
 									<span className="highlight"></span>
 									{errors.Password ? (
-										<span className="errorBar"></span>
+										<span>
+											<span className="errorBar"></span>
+											<span style={{ color: "red" }}>
+												{errors.Password.message}
+											</span>
+										</span>
 									) : (
 										<span className="bar"></span>
 									)}
@@ -232,13 +268,25 @@ function App() {
 									<label className="label-input-text">Confirm Password</label>
 									<input
 										type="text"
-										{...register("ConfirmPassword", { required: true })}
-										style={errors.ConfirmPassword ? {color:'red'} : {color: '#111111'}}
+										{...register("ConfirmPassword", {
+											required: true,
+											validate: (value) =>
+												value === password.current ||
+												"The passwords do not match",
+										})}
+										style={
+											errors.ConfirmPassword
+												? { color: "red" }
+												: { color: "#111111" }
+										}
 									/>
 									<span className="highlight"></span>
 
 									{errors.ConfirmPassword ? (
+										<span>
 										<span className="errorBar"></span>
+										<span style={{color:"red"}}>{errors.ConfirmPassword.message}</span>
+										</span>
 									) : (
 										<span className="bar"></span>
 									)}
